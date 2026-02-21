@@ -33,7 +33,7 @@ jobs:
           
           if [ -f "$ZIP_PATH" ]; then
             # Unzip using quotes to handle the space in the filename/path
-            unzip -o "$ZIP_PATH" -d "./CVBGODLY_CONSOLE"
+            unzip -o "$ZIP_PATH" -d "./"
             echo "BASH: [ACK] Scroll extracted inside workspace."
           else
             echo "BASH: [NACK] $ZIP_PATH not found at $GITHUB_WORKSPACE"
