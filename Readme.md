@@ -27,7 +27,7 @@
 | 🚀 YES | Is it the same exect command.com black box you see in MS Windows when you run cmd.exe? |
 | 🚀 YES | Is the Terminal command.com the same as the DOsBOx cmd.exe , yes it is cmd.exe in the terminal? |
 | 🚀 YES | Can I type 'DIR' in to the Window to see the same results I get in command.com |
-| 🚀 YES | Can I type any command I want from the Windows DOsBOx command.com promt?|
+| 🚀 YES | Can I type any command I want from MS Window's DOsBOx command.com promt in WIN 10?|
 </div>
 
 ## 🧠 AVIS‑DATALAKE Integration  
