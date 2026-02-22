@@ -24,8 +24,8 @@
 | ⚡ YES | Just hit the **Play** button in VB6 — you are only two menu clicks from a live prompt. |
 | 🧬 YES | This runs on the **TRUE** Visual Basic Runtime for maximum legacy stability. |
 | 🖥️ YES | It injects a “Black DOS Box” directly into the standard forms you create in vb6. |
-| 🚀 YES | Is is the same exect command.com black box you see in MS Windows when you run cmd.exe? |
-| 🚀 YES | Is is the Terminal command.com the same as the DOsBOx cmd.exe , yes it is cmd.exe in the terminal? |
+| 🚀 YES | Is it the same exect command.com black box you see in MS Windows when you run cmd.exe? |
+| 🚀 YES | Is it the Terminal command.com the same as the DOsBOx cmd.exe , yes it is cmd.exe in the terminal? |
 | 🚀 YES | Can I type I 'DIR' to see the same results I get in command.com? |
 | 🚀 YES | Can I type any command I want from the Windows DOsBoc command.com promt?|
 </div>
