@@ -48,36 +48,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const hostSidebar = document.getElementById("host-sidebar");
 
     function buildURL(r) {
-        return `https://mercwar.github.io/Constellation/LIVE/HOST/index.html?index=${r}`;
+        return `https://mercwar.github.io/Constellation/LIVE/HOST/index.html`;
+    }
+
+    function sanitizeHTML(html) {
+        // Remove scripts, links, and full-page wrappers
+        return html
+            .replace(/<script[\s\S]*?<\/script>/gi, "")
+            .replace(/<link[\s\S]*?>/gi, "")
+            .replace(/<!DOCTYPE[\s\S]*?>/gi, "")
+            .replace(/<html[\s\S]*?>/gi, "")
+            .replace(/<\/html>/gi, "")
+            .replace(/<head[\s\S]*?>[\s\S]*?<\/head>/gi, "")
+            .replace(/<body[\s\S]*?>/gi, "")
+            .replace(/<\/body>/gi, "");
     }
 
     function loadHost(r) {
         const url = buildURL(r);
 
-        status.textContent = `Checking HOST for repo: ${r}…`;
+        status.textContent = `Loading HOST for repo: ${r}…`;
 
-        return fetch(url, { method: "HEAD" })
-            .then(res => {
-                if (!res.ok) throw new Error("HEAD " + res.status);
-                status.textContent = `HOST found for ${r}. Loading…`;
-                return fetch(url);
-            })
+        return fetch(url)
             .then(res => res.text())
-            .then(html => {
+            .then(raw => {
+
+                const html = sanitizeHTML(raw);
 
                 const temp = document.createElement("div");
                 temp.innerHTML = html;
 
                 // Extract sidebar
                 const sidebar = temp.querySelector("#sidebar");
-                if (sidebar) {
-                    hostSidebar.innerHTML = "";
-                    hostSidebar.appendChild(sidebar);
-                } else {
-                    hostSidebar.innerHTML = "<div>No sidebar found in HOST.</div>";
-                }
+                hostSidebar.innerHTML = "";
+                if (sidebar) hostSidebar.appendChild(sidebar);
 
-                // Extract HOST content (inject + viewer)
+                // Extract content
                 const inject = temp.querySelector("#inject");
                 const viewer = temp.querySelector("#viewer");
 
@@ -89,16 +95,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
     }
 
-    // Try requested repo → fallback to mercwar
-    loadHost(repo).catch(() => {
-        status.textContent = `Repo '${repo}' not found. Loading mercwar…`;
-        loadHost("mercwar").catch(err => {
-            status.textContent = "Final load failed: " + err;
-        });
+    loadHost(repo).catch(err => {
+        status.textContent = "Load failed: " + err;
     });
 
 });
 </script>
+
 
 
 </body>
