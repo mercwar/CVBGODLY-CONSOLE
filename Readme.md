@@ -81,9 +81,9 @@ This repository preserves the **canonical implementation** of the VB6 console ho
 
 ---
 
-## 📸 **Console Showcase  - Images by: Copilot/Gemini/cgpt-5 **
+#### 📸  Console Showcase  - Images by: Copilot/Gemini/cgpt-5 
 
-### **1. Embedded Win32 Console (Primary Form)**
+#### **1. Embedded Win32 Console (Primary Form)**
 
 - **Real Win32 console** embedded inside VB6  
 - **Zero flicker**, **zero hacks**, **pure Win32 parenting**
